@@ -1,17 +1,21 @@
 var pageX;
 var pageY;
-var menu = document.querySelector("#context-menu");
+
+var menu = document.createElement("ul");
+var twitterMenu = document.createElement("li");
+menu.id = "context-menu";
+menu.className = "context-menu";
+twitterMenu.id = "context-menu__item__twitter";
+twitterMenu.className = "context-menu__item";
 
 document.onmouseup = mouseUpHandler;
 document.onmousedown = mouseDownHandler;
-
 
 if (!window.x) {
     x = {};
 }
 
-x.Selector = {};
-x.Selector.getSelected = function () {
+function getSelected() {
     var t = '';
     if (window.getSelection) {
         t = window.getSelection();
@@ -21,37 +25,32 @@ x.Selector.getSelected = function () {
         t = document.selection.createRange().text;
     }
     return t;
-};
-
+}
 
 function mouseUpHandler() {
     // console.log("A mouse up event took place within the document!");
-    var selectedText = x.Selector.getSelected();
+    var selectedText = getSelected();
     document.getElementById('selectedText').value = selectedText;
 
     // for better experience text selection range should be 140+ ?
     if (selectedText !== '') {
-        // console.log(x.Selector.getSelected());
-        var twitterMenu = document.createElement("li");
-        twitterMenu.id = "context-menu__item__twitter";
-        twitterMenu.className = "context-menu__item";
-        menu = document.getElementById("context-menu");
         menu.appendChild(twitterMenu);
         menu.classList.toggle('context-menu__display');
-        menu.style.left = pageX;
-        menu.style.top = pageY - 55;
+        menu.style.left = pageX + 5;
+        menu.style.top = pageY - 25;
+        document.body.appendChild(menu)
 
         twttr.widgets.createShareButton(
             'https://yoosuf.me/alice-In-wonderland/',
-            document.getElementById('context-menu__item__twitter'), {
+            twitterMenu, {
                 text: document.getElementById('selectedText').value
             }
         );
-
     } else {
-        console.log("have no text");
 
-
+      if (twitterMenu) {
+        twitterMenu.remove;
+      }
     }
 }
 
@@ -61,8 +60,5 @@ function mouseDownHandler(e) {
     pageX = e.pageX;
     pageY = e.pageY;
 
-    var element = document.getElementById("context-menu__item__twitter");
-    element.outerHTML = "";
-    // noinspection JSAnnotator
-    delete element;
+    twitterMenu.remove;
 }

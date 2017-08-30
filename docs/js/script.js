@@ -41,16 +41,22 @@ function mouseUpHandler() {
         document.body.appendChild(menu)
 
         twttr.widgets.createShareButton(
-            'https://yoosuf.me/alice-In-wonderland/',
+            'https://yoosuf.me/alice/',
             twitterMenu, {
                 text: document.getElementById('selectedText').value
             }
         );
     } else {
 
-      if (twitterMenu) {
-        twitterMenu.remove;
+
+      
+      while (menu) {
+        menu.remove;
       }
+
+      // if (twitterMenu) {
+      //   twitterMenu.remove;
+      // }
     }
 }
 

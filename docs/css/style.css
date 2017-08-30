@@ -1,16 +1,90 @@
 body {
-  font-family: Georgia, Cambria, "Times New Roman", Times, serif;
-  letter-spacing: .01rem;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 21px;
-  line-height: 1.58;
-  letter-spacing: -.003em;
-  max-width: 660px;
-  margin: 0 auto;
-  padding: 40px 20px;
+    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 21px;
+    line-height: 1.58;
+    letter-spacing: -.003em;
+    max-width: 660px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    position: relative;
 }
 
 h1 {
-  text-align: center;
+
+}
+
+.context-menu {
+    display: none;
+    visibility: hidden;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .5);
+    border: solid 1px #000;
+    position: absolute;
+    background: #1d1d1d;
+    margin: 0;
+    padding: 0;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.context-menu.context-menu__display {
+    display: block;
+    visibility: visible;
+}
+
+.context-menu .context-menu__item {
+    margin: 5px;
+    padding: 0;
+    cursor: pointer;
+    list-style-type: none;
+
+}
+
+.context-menu .context-menu__item .menu__link {
+    display: block;
+    width: 10px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.context-menu .context-menu__item a {
+    text-indent: -999px;
+    overflow: hidden;
+    display: block;
+    height: 24px;
+    width: 24px;
+}
+
+.context-menu .context-menu__item.twitter a {
+    background: url("../img/twitter.svg");
+}
+
+.article {
+
+}
+
+.article .article-header {
+
+}
+
+.article .article-section-title {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 700;
+    color: #5d5d5d;
+}
+
+.article .article-header-title {
+    text-align: center;
+}
+
+.article .article-body {
+
+}
+
+.article .article-footer {
+
 }
